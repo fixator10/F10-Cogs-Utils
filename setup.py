@@ -5,5 +5,5 @@ setup(
     description="A module with utils for Fixator10-Cogs",
     author="Fixator10",
     packages=["cogsutils"],
-    package_dir={"": "src"},
+    package_dir={"cogsutils": "src"},
 )
