@@ -12,6 +12,8 @@ class TimestampStyle(Enum):
     relative = "R"
 
 
-def get_markdown_timestamp(timestamp: datetime.datetime, style: TimestampStyle = TimestampStyle.datetime_short):
+def get_markdown_timestamp(
+    timestamp: datetime.datetime, style: TimestampStyle = TimestampStyle.datetime_short
+) -> str:
     timestamp = timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
     return f"<t:{timestamp:.0f}:{style.value}>"
