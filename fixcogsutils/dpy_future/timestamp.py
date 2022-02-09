@@ -1,5 +1,6 @@
 import datetime
 from enum import Enum
+from typing import Union
 
 
 class TimestampStyle(Enum):
@@ -12,6 +13,9 @@ class TimestampStyle(Enum):
     relative = "R"  # 2 months ago
 
 
-def get_markdown_timestamp(timestamp: datetime.datetime, style: TimestampStyle = None) -> str:
-    timestamp = timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
+def get_markdown_timestamp(
+    timestamp: Union[datetime.datetime, int], style: TimestampStyle = None
+) -> str:
+    if isinstance(timestamp, datetime.datetime):
+        timestamp = timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
     return f"<t:{timestamp:.0f}:{style.value}>" if style else f"<t:{timestamp:.0f}>"
