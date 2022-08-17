@@ -10,7 +10,7 @@ class DiscordUnicodeEmoji(Converter):
 
     async def convert(self, ctx, argument):
         if not emoji.is_emoji(argument):
-            raise EmojiNotFound
+            raise EmojiNotFound(argument)
         if emoji.version(argument) > CURRENT_UNICODE_EMOJI_VERSION:
             raise BadArgument("This emoji is not yet supported by Discord")
         return argument
