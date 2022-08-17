@@ -5,7 +5,4 @@ setup(
     description="A module with utils for Fixator10-Cogs",
     author="Fixator10",
     packages=["fixcogsutils", "fixcogsutils.dpy_future"],
-    install_requires=[
-        "emoji",
-    ],
 )
