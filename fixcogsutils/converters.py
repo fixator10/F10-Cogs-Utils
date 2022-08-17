@@ -12,5 +12,5 @@ class DiscordUnicodeEmoji(Converter):
         if not emoji.is_emoji(argument):
             raise EmojiNotFound(argument)
         if emoji.version(argument) > CURRENT_UNICODE_EMOJI_VERSION:
-            raise BadArgument("This emoji is not yet supported by Discord")
+            raise BadArgument("This emoji is not yet supported by Discord.")
         return argument
